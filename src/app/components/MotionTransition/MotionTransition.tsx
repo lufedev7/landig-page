@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { useEffect, useRef } from 'react'
 import { type MotionTransitionProps } from './MotionTransition.types'
 import { useAnimation, useInView, motion } from 'framer-motion'
@@ -8,12 +7,12 @@ export function MotionTransition(props: MotionTransitionProps) {
   const { children, className } = props
 
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: false })
+  const isInView: boolean = useInView(ref, { once: false })
   const mainControls = useAnimation()
   const slideControls = useAnimation()
 
   useEffect(() => {
-    if (isInView) {
+    if (typeof isInView === 'boolean' && isInView) {
       mainControls.start('visible')
       slideControls.start('visible')
     }

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 'use client'
 import { useAnimation, useInView, motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
@@ -10,7 +9,7 @@ export function Reveal({ children }: { children: React.ReactNode }) {
   const slideControls = useAnimation()
 
   useEffect(() => {
-    if (isInView) {
+    if (typeof isInView === 'boolean' && isInView) {
       mainControls.start('visible')
       slideControls.start('visible')
     }
