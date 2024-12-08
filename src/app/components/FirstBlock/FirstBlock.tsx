@@ -45,6 +45,7 @@ export function FirstBlock() {
             alt='Card'
             width={450}
             height={450}
+            priority
             className='h-auto w-72 md:w-full'
           />
         </MotionTransition>
